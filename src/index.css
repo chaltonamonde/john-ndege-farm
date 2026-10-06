@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --farm-dark: #0f2015;
+    --farm-green: #1a3622;
+    --farm-green-light: #244930;
+    --farm-gold: #d4af37;
+    --farm-gold-light: #f3cf65;
+    --farm-gold-dark: #b89420;
+    --farm-cream: #faf8f2;
+    --farm-card: #142a1b;
+    --farm-border: rgba(212, 175, 55, 0.2);
+  }
+
+  * {
+    border-color: rgba(212, 175, 55, 0.15);
+  }
+
+  body {
+    background-color: #0c1810;
+    color: #e5ece7;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0c1810;
+}
+::-webkit-scrollbar-thumb {
+  background: #244930;
+  border-radius: 4px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d4af37;
+}
+
+/* Glassmorphism & Gold Glow utilities */
+.gold-glow {
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.25);
+}
+
+.gold-glow-hover:hover {
+  box-shadow: 0 0 35px rgba(212, 175, 55, 0.45);
+}
+
+.green-card-glass {
+  background: linear-gradient(135deg, rgba(22, 45, 30, 0.85) 0%, rgba(15, 32, 21, 0.95) 100%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.green-card-glass:hover {
+  border-color: rgba(212, 175, 55, 0.45);
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #fff2be 0%, #d4af37 50%, #f5cf68 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-badge {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.05) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  color: #f3cf65;
+}
+
+/* Animated Pulse ring for Live M-Pesa / WhatsApp indicators */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(34, 197, 94, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+  }
+}
+
+.live-pulse {
+  animation: pulse-ring 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer-bg {
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(212,175,55,0.15) 50%, rgba(255,255,255,0) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite linear;
+}
